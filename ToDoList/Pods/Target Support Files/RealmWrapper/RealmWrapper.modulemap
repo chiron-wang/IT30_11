@@ -1,0 +1,6 @@
+framework module RealmWrapper {
+  umbrella header "RealmWrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}
