@@ -310,10 +310,10 @@
             </objects>
             <point key="canvasLocation" x="1071" y="-420"/>
         </scene>
-        <!--View Controller-->
+        <!--Create View Controller-->
         <scene sceneID="E2a-uP-MQP">
             <objects>
-                <viewController id="7IJ-WX-74D" sceneMemberID="viewController">
+                <viewController id="7IJ-WX-74D" customClass="CreateViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HdV-Ra-2hl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -343,6 +343,9 @@
                                 <state key="normal" title="ADD">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="7IJ-WX-74D" eventType="touchUpInside" id="QKH-W0-ujL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bez-iR-sjU">
                                 <rect key="frame" x="277" y="184" width="82" height="27"/>
@@ -354,6 +357,9 @@
                                 <state key="normal" title=" clear" image="delete.left.fill" catalog="system">
                                     <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clearButtonPressed:" destination="7IJ-WX-74D" eventType="touchUpInside" id="aGr-5A-UQS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.49411764705882355" green="0.78944963219999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -374,6 +380,9 @@
                         <viewLayoutGuide key="safeArea" id="yhF-Kg-Rdu"/>
                     </view>
                     <navigationItem key="navigationItem" id="1WK-hZ-v9x"/>
+                    <connections>
+                        <outlet property="taskTextField" destination="cfS-nH-frN" id="5Gy-L0-Qwf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuA-IZ-5Fy" sceneMemberID="firstResponder"/>
             </objects>
@@ -397,10 +406,10 @@
             </objects>
             <point key="canvasLocation" x="128.80000000000001" y="127.83251231527095"/>
         </scene>
-        <!--List View Controller-->
+        <!--Edit View Controller-->
         <scene sceneID="TKY-oC-ceO">
             <objects>
-                <viewController id="JJe-xL-ua9" customClass="ListViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JJe-xL-ua9" customClass="EditViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hg2-fU-QmR">
                         <rect key="frame" x="0.0" y="0.0" width="335" height="345"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
