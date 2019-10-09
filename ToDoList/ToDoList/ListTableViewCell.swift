@@ -43,4 +43,15 @@ class ListTableViewCell: UITableViewCell {
         checkButton.setImage(image, for: .normal)
     }
     
+    @IBAction func editButtonPressed(_ sender: UIButton) {
+        let realm = try! Realm()
+        guard let todo = realm.objects(ToDoList.self).filter("id = '\(id)'").first else { return }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "editNotification"), object: todo)
+
+        
+    }
+    
+    
+    
 }

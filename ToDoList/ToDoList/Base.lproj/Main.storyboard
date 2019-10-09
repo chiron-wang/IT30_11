@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xcx-zz-Jep">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xcx-zz-Jep">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -147,7 +147,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <segue destination="JJe-xL-ua9" kind="show" id="Qmo-Dl-iKS"/>
+                                                <action selector="editButtonPressed:" destination="wXI-YF-Y31" eventType="touchUpInside" id="39j-Yl-2YI"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -277,13 +277,13 @@
         <!--Edit View Controller-->
         <scene sceneID="TKY-oC-ceO">
             <objects>
-                <viewController id="JJe-xL-ua9" customClass="EditViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditVC" id="JJe-xL-ua9" customClass="EditViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hg2-fU-QmR">
-                        <rect key="frame" x="0.0" y="0.0" width="335" height="345"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit a task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wc-Op-9ui">
-                                <rect key="frame" x="80.000000000000014" y="74" width="175.33333333333337" height="40"/>
+                                <rect key="frame" x="100.00000000000001" y="74" width="175.33333333333337" height="40"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -307,6 +307,9 @@
                                 <state key="normal" title="SAVE">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="JJe-xL-ua9" eventType="touchUpInside" id="q9n-ei-s79"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlW-pg-g7t">
                                 <rect key="frame" x="277" y="140.66666666666666" width="82" height="27"/>
@@ -318,6 +321,9 @@
                                 <state key="normal" title=" clear" image="delete.left.fill" catalog="system">
                                     <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clearButtonPressed:" destination="JJe-xL-ua9" eventType="touchUpInside" id="EqH-3B-nkY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.49582010510000002" green="0.78944963219999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -338,10 +344,13 @@
                         <viewLayoutGuide key="safeArea" id="vGs-mY-b6k"/>
                     </view>
                     <navigationItem key="navigationItem" id="4E1-fT-6XE"/>
+                    <connections>
+                        <outlet property="taskTextField" destination="K6I-HW-oSI" id="HVU-kw-Pr9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46r-J8-YJo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="-253"/>
+            <point key="canvasLocation" x="1860" y="-301"/>
         </scene>
     </scenes>
     <resources>

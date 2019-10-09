@@ -10,20 +10,7 @@ import UIKit
 import RealmSwift
 
 class ListViewController: UIViewController {
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 6
-//    }
-//
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return UITableViewCell()
-//    }
-//
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,13 +20,13 @@ class ListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         let realm = try! Realm()
-        let todoList = realm.objects(ToDoList.self)
-        for todo in todoList {
-            print(todo)
-        }
+//        let todoList = realm.objects(ToDoList.self)
+//        for todo in todoList {
+//            print(todo)
+//        }
         // Get our Realm file's parent directory
         let folderPath = realm.configuration.fileURL!.deletingLastPathComponent().path
-        
+
         print(folderPath)
     }
 
