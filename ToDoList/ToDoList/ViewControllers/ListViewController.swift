@@ -10,9 +10,12 @@ import UIKit
 import RealmSwift
 
 class ListViewController: UIViewController {
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let image = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(image, for: .default)
+        self.navigationController?.navigationBar.shadowImage = image
     }
 }
