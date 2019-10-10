@@ -15,21 +15,4 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let realm = try! Realm()
-//        let todoList = realm.objects(ToDoList.self)
-//        for todo in todoList {
-//            print(todo)
-//        }
-        // Get our Realm file's parent directory
-        let folderPath = realm.configuration.fileURL!.deletingLastPathComponent().path
-
-        print(folderPath)
-    }
-
-    
-
 }

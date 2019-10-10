@@ -9,18 +9,16 @@
 import UIKit
 import RealmSwift
 
-class EditViewController: UIViewController {
+class EditViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var taskTextField: UITextField!
     
     var todo:ToDoList?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let content = todo?.content else { return }
-        taskTextField.text = content
-
+        configurationUI()
     }
     
     // MARK: - IBAction
@@ -34,8 +32,9 @@ class EditViewController: UIViewController {
             let id = todo?.id else { return }
                 
         if !content.isEmpty {
+            let filter = "id == '\(id)' and status != 'deleted'"
             let realm = try! Realm()
-            guard let realmTodo = realm.objects(ToDoList.self).filter("id == '\(id)' and status != 'deleted'").first else { return }
+            guard let realmTodo = RealmHelper.loadToDoListWithFilter(filter: filter) .first else { return }
             
             try! realm.write {
                 realmTodo.content = content
@@ -46,19 +45,21 @@ class EditViewController: UIViewController {
         }
     }
     
-//    func receivedNotification(notif: Notification) {
-//        print("receivedNotification~")
-//        print(notif.object!)
-//    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-    */
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // MARK: - Other Method
+    
+    // 一般我們習慣會將private方法，整理到最下方
+    private func configurationUI() {
+        guard let content = todo?.content else { return }
+        taskTextField.text = content
+    }
+    
 }

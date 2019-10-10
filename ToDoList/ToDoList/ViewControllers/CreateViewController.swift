@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CreateViewController: UIViewController {
+class CreateViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var taskTextField: UITextField!
     
@@ -30,17 +30,23 @@ class CreateViewController: UIViewController {
     @IBAction func addButtonPressed(_ sender: UIButton) {
         guard let content = taskTextField.text else { return }
         if !content.isEmpty {
-            let realm = try! Realm()
             let todoList = ToDoList()
             todoList.content = content
             
-            try! realm.write {
-                realm.add(todoList)
-            }
-            
+            RealmHelper.addToDoList(todoList: todoList)
+                        
             // return List
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27005327234F264900359CB0 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27005326234F264900359CB0 /* RealmHelper.swift */; };
 		276BEF2C2347712D007AFFB8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BEF2B2347712D007AFFB8 /* ListViewController.swift */; };
 		276EB32D2349CE2F0063250C /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276EB32C2349CE2F0063250C /* CreateViewController.swift */; };
 		276EB32F2349CE3A0063250C /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276EB32E2349CE3A0063250C /* EditViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		15FDA31546874249AD95EA64 /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
+		27005326234F264900359CB0 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		276BEF2B2347712D007AFFB8 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		276EB32C2349CE2F0063250C /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		276EB32E2349CE3A0063250C /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27005325234F25B700359CB0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				27005326234F264900359CB0 /* RealmHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		276EB3302349CE9D0063250C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		27E4C9EB2344927E00ABC7A8 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				27005325234F25B700359CB0 /* Helpers */,
 				278FC68F2349D327009BD2A8 /* Models */,
 				276EB3302349CE9D0063250C /* ViewControllers */,
 				27E4C9EC2344927E00ABC7A8 /* AppDelegate.swift */,
@@ -241,6 +252,7 @@
 				278FC697234AE535009BD2A8 /* ListTableViewCell.swift in Sources */,
 				276EB32D2349CE2F0063250C /* CreateViewController.swift in Sources */,
 				27E4C9ED2344927E00ABC7A8 /* AppDelegate.swift in Sources */,
+				27005327234F264900359CB0 /* RealmHelper.swift in Sources */,
 				276BEF2C2347712D007AFFB8 /* ListViewController.swift in Sources */,
 				278FC6912349D33D009BD2A8 /* ToDoList.swift in Sources */,
 				27E4C9EF2344927E00ABC7A8 /* SceneDelegate.swift in Sources */,
@@ -389,7 +401,8 @@
 			baseConfigurationReference = 7C8802EC5D3937FCE181C140 /* Pods-ToDoList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,6 +410,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mike.ToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -407,7 +421,8 @@
 			baseConfigurationReference = 15FDA31546874249AD95EA64 /* Pods-ToDoList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -415,6 +430,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mike.ToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

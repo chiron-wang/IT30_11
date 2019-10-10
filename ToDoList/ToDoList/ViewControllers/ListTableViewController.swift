@@ -18,19 +18,18 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotification(notif:)), name: NSNotification.Name(rawValue: "editNotification"), object: nil)
+        setNotificationCenter()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let realm = try! Realm()
-        todoList = Array(realm.objects(ToDoList.self).filter("status != 'deleted'"))
+        todoList = RealmHelper.loadToDoList()
         tableView.reloadData()
         
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table View
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -54,20 +53,12 @@ class ListTableViewController: UITableViewController {
         return cell
     }
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let index = indexPath.row
             let realm = try! Realm()
-            todoList = Array(realm.objects(ToDoList.self).filter("status != 'deleted'"))
+            todoList = RealmHelper.loadToDoList()
             try! realm.write {
                 // update todolist status to deleted
                 todoList[index].status = "\(Status.deleted)"
@@ -77,31 +68,12 @@ class ListTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+        
+    // MARK: - Other Method
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    private func setNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotification(notif:)), name: NSNotification.Name(rawValue: "editNotification"), object: nil)
+    }
     
     @objc func receivedNotification(notif: Notification) {
         guard let editTodo = notif.object as? ToDoList else { return }
@@ -109,6 +81,5 @@ class ListTableViewController: UITableViewController {
         let editVC = storyBoard.instantiateViewController(withIdentifier: "EditVC") as! EditViewController
         editVC.todo = editTodo
         self.navigationController?.pushViewController(editVC, animated: true)
-    }
-    
+    }    
 }
