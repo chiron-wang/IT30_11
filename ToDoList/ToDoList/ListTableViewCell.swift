@@ -30,7 +30,7 @@ class ListTableViewCell: UITableViewCell {
     // complete todo
     @IBAction func checkButtonPressed(_ sender: UIButton) {
         let realm = try! Realm()
-        guard let todo = realm.objects(ToDoList.self).filter("id = '\(id)'").first else { return }
+        guard let todo = realm.objects(ToDoList.self).filter("id == '\(id)'").first else { return }
         let isDone = todo.status == "\(Status.done)"
         let updateStatus = isDone ? "\(Status.ongoing)" : "\(Status.done)"
         
