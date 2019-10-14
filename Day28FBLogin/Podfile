@@ -6,6 +6,8 @@ target 'Day28FBLogin' do
   use_frameworks!
 
   # Pods for Day28FBLogin
+  pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
-
+  pod 'FBSDKShareKit'
+  pod 'Alamofire'
 end

@@ -60,28 +60,31 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <!--FB-SDK-->
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fbXXXyourIDXXX</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>XXXyourIDXXX</string>
-    <key>FacebookDisplayName</key>
-    <string>ToDoList</string>
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fbXXXyourIDXXX</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>XXXyourIDXXX</string>
+	<key>FacebookDisplayName</key>
+	<string>ToDoList</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+    <key>FacebookAdvertiserIDCollectionEnabled</key>
+    <true/>
+    <key>FacebookAdvertiserIDCollectionEnabled</key>
+    <true/>
+    <key>FacebookAutoLogAppEventsEnabled</key>
+    <true/>
 </dict>
 </plist>
