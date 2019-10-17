@@ -14,10 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-                
-        // 前景通知
-        UNUserNotificationCenter.current().delegate = self
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             if let error = error {
                 print(error)
@@ -29,6 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // 前景通知
+        UNUserNotificationCenter.current().delegate = self
+        
+        // Day32 - 客製化通知
+        let likeAction = UNNotificationAction(identifier: "like", title: "守護石虎", options: [.foreground])
+        let dislikeAction = UNNotificationAction(identifier: "dislike", title: "稍後再說", options: [])
+        let category = UNNotificationCategory(identifier: "catMessage", actions: [likeAction, dislikeAction], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+
         return true
     }
 
@@ -53,5 +58,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
  
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.badge, .sound, .alert])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler:  @escaping () -> Void) {
+        
+        let content = response.notification.request.content
+        print("title \(content.title)")
+        print("userInfo \(content.userInfo)")
+        print("actionIdentifier \(response.actionIdentifier)")
+        
+        completionHandler()
     }
 }

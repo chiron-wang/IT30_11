@@ -29,12 +29,12 @@ class ViewController: UIViewController {
         """
         content.badge = 3
         content.sound = UNNotificationSound.default
+        content.categoryIdentifier = "catMessage"
         
         let imageURL = Bundle.main.url(forResource: "Cat2", withExtension: "jpg")
         let attchment = try! UNNotificationAttachment(identifier: "catNotification1", url: imageURL!, options: nil)
         content.attachments = [attchment]
-        
-//        content.categoryIdentifier = "notification1"
+        content.userInfo =   ["link":"https://img5.cna.com.tw/www/WebPhotos/1024/20190828/960x960_268359289092.jpg"]
         
         // time interval must be at least 60 if repeating
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
