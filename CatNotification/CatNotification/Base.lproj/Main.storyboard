@@ -22,20 +22,40 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyP-mG-ApD">
-                                <rect key="frame" x="118" y="662.5" width="178" height="42"/>
+                                <rect key="frame" x="117" y="662.5" width="180.5" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="接收石虎的訊息"/>
                                 <connections>
                                     <action selector="catButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L7R-5I-ZAS"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nph-T1-fPz">
+                                <rect key="frame" x="117" y="734.5" width="180.5" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="訂閱通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8g-1H-eOV">
+                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Pl2-2J-aUb">
+                                        <rect key="frame" x="131.5" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="catSwitchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Okq-Sl-1pX"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="nph-T1-fPz" firstAttribute="top" secondItem="AyP-mG-ApD" secondAttribute="bottom" constant="30" id="2mL-kG-80l"/>
                             <constraint firstItem="AyP-mG-ApD" firstAttribute="top" secondItem="ZQA-Mx-TBI" secondAttribute="bottom" constant="10" id="JkR-AT-XJU"/>
                             <constraint firstItem="ZQA-Mx-TBI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NVR-l5-NyM"/>
                             <constraint firstItem="ZQA-Mx-TBI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PSP-tB-vnX"/>
                             <constraint firstItem="ZQA-Mx-TBI" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="1:2" id="RgV-i1-avo"/>
+                            <constraint firstItem="nph-T1-fPz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cjQ-Pd-W92"/>
+                            <constraint firstItem="nph-T1-fPz" firstAttribute="width" secondItem="AyP-mG-ApD" secondAttribute="width" id="sjn-f3-Wc8"/>
                             <constraint firstItem="AyP-mG-ApD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xPk-qT-k3I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
