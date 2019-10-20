@@ -7,5 +7,9 @@ target 'ToDoList' do
 
   # Pods for ToDoList
   pod 'RealmWrapper'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+  pod 'Alamofire'
 
 end

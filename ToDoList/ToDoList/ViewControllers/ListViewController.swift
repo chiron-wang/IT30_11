@@ -9,7 +9,15 @@
 import UIKit
 import RealmSwift
 
-class ListViewController: UIViewController {
+class ListViewController: UIViewController, UITextFieldDelegate, LoginViewControllerDelegate {
+    
+    func PassImageData(image: UIImage) {
+        userImageView.image = image
+        userImageView.clipsToBounds = true
+        userImageView.layer.cornerRadius = (userImageView.frame.size.width) / 2
+    }
+    
+    @IBOutlet weak var userImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,5 +25,13 @@ class ListViewController: UIViewController {
         let image = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(image, for: .default)
         self.navigationController?.navigationBar.shadowImage = image
+        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as? LoginViewController
+        destinationViewController?.delegate = self
+    }
+    
 }
+

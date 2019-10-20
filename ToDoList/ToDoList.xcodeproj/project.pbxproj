@@ -13,6 +13,7 @@
 		276BEF2C2347712D007AFFB8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BEF2B2347712D007AFFB8 /* ListViewController.swift */; };
 		276EB32D2349CE2F0063250C /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276EB32C2349CE2F0063250C /* CreateViewController.swift */; };
 		276EB32F2349CE3A0063250C /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276EB32E2349CE3A0063250C /* EditViewController.swift */; };
+		277EA5F6235C5CE500814AB9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EA5F5235C5CE500814AB9 /* LoginViewController.swift */; };
 		278FC6912349D33D009BD2A8 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278FC6902349D33D009BD2A8 /* ToDoList.swift */; };
 		278FC695234AE2D7009BD2A8 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278FC694234AE2D7009BD2A8 /* ListTableViewController.swift */; };
 		278FC697234AE535009BD2A8 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278FC696234AE535009BD2A8 /* ListTableViewCell.swift */; };
@@ -44,6 +45,7 @@
 		276BEF2B2347712D007AFFB8 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		276EB32C2349CE2F0063250C /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		276EB32E2349CE3A0063250C /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		277EA5F5235C5CE500814AB9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		278FC6902349D33D009BD2A8 /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
 		278FC694234AE2D7009BD2A8 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		278FC696234AE535009BD2A8 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		276EB3302349CE9D0063250C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				277EA5F5235C5CE500814AB9 /* LoginViewController.swift */,
 				276EB32C2349CE2F0063250C /* CreateViewController.swift */,
 				276EB32E2349CE3A0063250C /* EditViewController.swift */,
 				276BEF2B2347712D007AFFB8 /* ListViewController.swift */,
@@ -330,6 +333,7 @@
 				276BEF2C2347712D007AFFB8 /* ListViewController.swift in Sources */,
 				278FC6912349D33D009BD2A8 /* ToDoList.swift in Sources */,
 				27E4C9EF2344927E00ABC7A8 /* SceneDelegate.swift in Sources */,
+				277EA5F6235C5CE500814AB9 /* LoginViewController.swift in Sources */,
 				278FC695234AE2D7009BD2A8 /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +373,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24JWJSATC;
 				INFOPLIST_FILE = ToDoListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -388,6 +393,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24JWJSATC;
 				INFOPLIST_FILE = ToDoListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
