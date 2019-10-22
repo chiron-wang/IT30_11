@@ -10,11 +10,13 @@ import UIKit
 import RealmSwift
 
 class EditViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var taskTextField: UITextField!
+    @IBOutlet weak var taskDatePicker: UIDatePicker!
+    @IBOutlet weak var dateSwitch: UISwitch!
     
     var todo:ToDoList?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +25,15 @@ class EditViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - IBAction
     
+    @IBAction func dateSwitchChanged(_ sender: UISwitch) {
+        //countDatePicker.isHidden = !sender.isOn
+        if sender.isOn {
+            taskDatePicker.isHidden = false
+        } else {
+            taskDatePicker.isHidden = true
+        }
+    }
+    
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         taskTextField.text = ""
     }
@@ -30,7 +41,7 @@ class EditViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         guard let content = taskTextField.text,
             let id = todo?.id else { return }
-                
+        
         if !content.isEmpty {
             let filter = "id == '\(id)' and status != 'deleted'"
             let realm = try! Realm()
@@ -38,6 +49,28 @@ class EditViewController: UIViewController, UITextFieldDelegate {
             
             try! realm.write {
                 realmTodo.content = content
+            }
+            
+            if dateSwitch.isOn {
+                let date = taskDatePicker.date
+                let components = Calendar.current.dateComponents([ .year, .month, .day, .hour, .minute], from: date)
+                
+                print("date: \(date)")
+                print("conponents: \(String(describing: components.date))")
+                
+                let notificationContent = UNMutableNotificationContent()
+                notificationContent.title = content
+                notificationContent.body = "任務將於 \(date) 到期"
+                notificationContent.badge = 3
+                notificationContent.sound = UNNotificationSound.default
+                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+                let request = UNNotificationRequest(identifier: "todoNotification", content: notificationContent, trigger:
+                    trigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            } else {
+                // remove notifications
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["todoNotification"])
+                UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["todoNotification"])
             }
             
             // return List

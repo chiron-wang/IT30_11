@@ -355,16 +355,40 @@
                                     <action selector="clearButtonPressed:" destination="JJe-xL-ua9" eventType="touchUpInside" id="EqH-3B-nkY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定時提醒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms5-jb-9Fo">
+                                <rect key="frame" x="27" y="273" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="2TN-BS-gaQ"/>
+                                    <constraint firstAttribute="height" constant="30" id="Muw-Xm-xRt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sXv-EJ-zRW">
+                                <rect key="frame" x="277" y="272.66666666666669" width="51" height="31"/>
+                                <connections>
+                                    <action selector="dateSwitchChanged:" destination="JJe-xL-ua9" eventType="valueChanged" id="HAx-Lm-ehw"/>
+                                </connections>
+                            </switch>
+                            <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5GX-qf-Ue1">
+                                <rect key="frame" x="0.0" y="338" width="375" height="280"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" red="0.49582010510000002" green="0.78944963219999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="K6I-HW-oSI" firstAttribute="leading" secondItem="vGs-mY-b6k" secondAttribute="leading" constant="27" id="0WV-ur-q7H"/>
+                            <constraint firstItem="ms5-jb-9Fo" firstAttribute="leading" secondItem="vGs-mY-b6k" secondAttribute="leading" constant="27" id="0tw-MR-BB8"/>
+                            <constraint firstItem="sXv-EJ-zRW" firstAttribute="centerY" secondItem="ms5-jb-9Fo" secondAttribute="centerY" id="6yC-z0-QK4"/>
                             <constraint firstItem="GlW-pg-g7t" firstAttribute="leading" secondItem="K6I-HW-oSI" secondAttribute="trailing" constant="10" id="7Lc-QR-ieG"/>
                             <constraint firstItem="vGs-mY-b6k" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Oo-dV-LMV" secondAttribute="trailing" symbolic="YES" id="8pH-bV-Z5A"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GlW-pg-g7t" secondAttribute="trailing" constant="-24" id="DBg-In-toq"/>
                             <constraint firstItem="9Oo-dV-LMV" firstAttribute="top" secondItem="K6I-HW-oSI" secondAttribute="bottom" constant="25" id="Hd0-gj-kRm"/>
                             <constraint firstItem="9Oo-dV-LMV" firstAttribute="leading" secondItem="vGs-mY-b6k" secondAttribute="leading" constant="27" id="LjQ-dh-xc6"/>
+                            <constraint firstItem="ms5-jb-9Fo" firstAttribute="top" secondItem="9Oo-dV-LMV" secondAttribute="bottom" constant="27" id="b7j-RK-8cX"/>
                             <constraint firstItem="K6I-HW-oSI" firstAttribute="top" secondItem="2wc-Op-9ui" secondAttribute="bottom" constant="23" id="eH1-uk-aqR"/>
+                            <constraint firstItem="sXv-EJ-zRW" firstAttribute="leading" secondItem="GlW-pg-g7t" secondAttribute="leading" id="lA5-V8-e2h"/>
                             <constraint firstItem="GlW-pg-g7t" firstAttribute="centerY" secondItem="K6I-HW-oSI" secondAttribute="centerY" id="lUX-dz-uAa"/>
                             <constraint firstItem="2wc-Op-9ui" firstAttribute="centerX" secondItem="hg2-fU-QmR" secondAttribute="centerX" id="mQa-AE-Zpj"/>
                             <constraint firstItem="K6I-HW-oSI" firstAttribute="leading" secondItem="vGs-mY-b6k" secondAttribute="leading" constant="27" id="mc6-3a-r2I"/>
@@ -375,12 +399,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="4E1-fT-6XE"/>
                     <connections>
+                        <outlet property="dateSwitch" destination="sXv-EJ-zRW" id="5FV-2G-v4Q"/>
+                        <outlet property="taskDatePicker" destination="5GX-qf-Ue1" id="ox1-He-wg0"/>
                         <outlet property="taskTextField" destination="K6I-HW-oSI" id="HVU-kw-Pr9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46r-J8-YJo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="-301"/>
+            <point key="canvasLocation" x="1860" y="-301.47783251231527"/>
         </scene>
     </scenes>
     <resources>
