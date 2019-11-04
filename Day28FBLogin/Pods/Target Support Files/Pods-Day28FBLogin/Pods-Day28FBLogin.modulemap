@@ -1,6 +1,0 @@
-framework module Pods_Day28FBLogin {
-  umbrella header "Pods-Day28FBLogin-umbrella.h"
-
-  export *
-  module * { export * }
-}
