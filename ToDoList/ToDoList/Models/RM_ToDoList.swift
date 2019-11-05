@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ToDoList: Object {
+class RM_ToDoList: Object {
     @objc private(set) dynamic var id:String = UUID().uuidString
     @objc dynamic var content:String = ""
     @objc dynamic var startTime:Date = Date()

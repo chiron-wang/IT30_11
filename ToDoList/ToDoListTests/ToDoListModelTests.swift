@@ -25,7 +25,7 @@ class ToDoListModelTests: XCTestCase {
         let status = "\(Status.ongoing)"
         
         // when
-        let todoList = ToDoList()
+        let todoList = RM_ToDoList()
         
         // then
         XCTAssertEqual(category, todoList.category)

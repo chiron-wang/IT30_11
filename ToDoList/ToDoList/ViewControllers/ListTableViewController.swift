@@ -11,20 +11,31 @@ import RealmSwift
 
 class ListTableViewController: UITableViewController {
     
-    var todoList:[ToDoList] = []
+//    var todoList:[RM_ToDoList] = []
+//    var viewModel: [TodoCellViewModel] = [TodoCellViewModel]()
+    
+    var viewModel: [TodoCellViewModel] {
+        return controller.viewModel
+    }
+    
+    lazy var controller: ToDoListController = {
+        return ToDoListController()
+    }()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        controller.start()
         setNotificationCenter()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        todoList = RealmHelper.loadToDoList()
+        let todoList:[RM_ToDoList] = RealmHelper.loadToDoList()
+        controller.buildViewModels(todos: todoList)
         tableView.reloadData()
         
     }
@@ -38,17 +49,16 @@ class ListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return  todoList.count
+        return  viewModel.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
-        let index = indexPath.row
-        let imageName = todoList[index].status == "\(Status.ongoing)" ? "Circle0" : "Circle1"
-        cell.id = todoList[index].id
-        cell.contentLabel.text = todoList[index].content
-        cell.checkButton.setImage(UIImage(named: imageName), for: .normal)
-        // Configure the cell...
+        let rowViewModel = viewModel[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoCell
+
+        if let cell = cell as? CellConfigurable {
+            cell.setup(viewModel: rowViewModel)
+        }
         
         return cell
     }
@@ -58,25 +68,26 @@ class ListTableViewController: UITableViewController {
         if editingStyle == .delete {
             let index = indexPath.row
             let realm = try! Realm()
-            todoList = RealmHelper.loadToDoList()
+            var todoList = RealmHelper.loadToDoList()
             try! realm.write {
                 // update todolist status to deleted
                 todoList[index].status = "\(Status.deleted)"
             }
             todoList.remove(at: index)
+            controller.buildViewModels(todos: todoList)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
         
     // MARK: - Other Method
-    
+        
     private func setNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotification(notif:)), name: NSNotification.Name(rawValue: "editNotification"), object: nil)
     }
     
     @objc func receivedNotification(notif: Notification) {
-        guard let editTodo = notif.object as? ToDoList else { return }
+        guard let editTodo = notif.object as? RM_ToDoList else { return }
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let editVC = storyBoard.instantiateViewController(withIdentifier: "EditVC") as! EditViewController
         editVC.todo = editTodo

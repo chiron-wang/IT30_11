@@ -24,7 +24,7 @@ class ToDoListTests: XCTestCase {
         let status = "\(Status.done)"
         
         // when
-        let todoList = ToDoList()
+        let todoList = RM_ToDoList()
         todoList.endTime = Date()
         todoList.status = "\(Status.done)"
         

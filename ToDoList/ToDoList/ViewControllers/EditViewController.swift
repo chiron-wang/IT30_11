@@ -15,7 +15,7 @@ class EditViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var taskDatePicker: UIDatePicker!
     @IBOutlet weak var dateSwitch: UISwitch!
     
-    var todo:ToDoList?
+    var todo:RM_ToDoList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class EditViewController: UIViewController, UITextFieldDelegate {
                 let notificationContent = UNMutableNotificationContent()
                 notificationContent.title = content
                 notificationContent.body = "任務將於 \(date) 到期"
-                notificationContent.badge = 3
+                notificationContent.badge = 1
                 notificationContent.sound = UNNotificationSound.default
                 let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
                 let request = UNNotificationRequest(identifier: "todoNotification", content: notificationContent, trigger:

@@ -11,21 +11,21 @@ import RealmSwift
 
 class RealmHelper: NSObject {
     
-    class func loadToDoList() -> [ToDoList] {
+    class func loadToDoList() -> [RM_ToDoList] {
         let realm = try! Realm()
-        let result = Array(realm.objects(ToDoList.self).filter("status != 'deleted'"))
+        let result = Array(realm.objects(RM_ToDoList.self).filter("status != 'deleted'"))
         
         return result
     }
     
-    class func loadToDoListWithFilter(filter: String) -> [ToDoList] {
+    class func loadToDoListWithFilter(filter: String) -> [RM_ToDoList] {
         let realm = try! Realm()
-        let result = Array(realm.objects(ToDoList.self).filter(filter))
+        let result = Array(realm.objects(RM_ToDoList.self).filter(filter))
         
         return result
     }
     
-    class func addToDoList(todoList: ToDoList) {
+    class func addToDoList(todoList: RM_ToDoList) {
         let realm = try! Realm()
                 
         try! realm.write {
